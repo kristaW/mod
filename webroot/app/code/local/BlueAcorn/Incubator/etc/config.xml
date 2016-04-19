@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+        <!-- The root node for Magento module configuration -->
+<config>
+    <modules>
+        <BlueAcorn_Incubator>
+            <version>1.0.0.3</version>
+        </BlueAcorn_Incubator>
+    </modules>
+    <!-- Configure our module's behavior in the global scope -->
+    <global>
+        <models>
+            <blueacorn_incubator>
+                <class>BlueAcorn_Incubator_Model</class>
+                <resourceModel>new_resource</resourceModel>
+            </blueacorn_incubator>
+            <new_resource>
+                <class>BlueAcorn_Incubator_Model_Resource</class>
+            </new_resource>
+        </models>
+        <resource>
+            <blueacorn_incubator_setup>
+                <setup>
+                    <module>BlueAcorn_Incubator</module>
+                    <class>BlueAcorn_Incubator_Resource_</class>
+                </setup>
+            </blueacorn_incubator_setup>
+        </resource>
+    </global>
+    <frontend>
+        <layout>
+            <updates>
+                <blueacorn_incubator>
+                    <file>blueacorn/incubator-styling.xml</file>
+                </blueacorn_incubator>
+            </updates>
+        </layout>
+    </frontend>
+</config>
