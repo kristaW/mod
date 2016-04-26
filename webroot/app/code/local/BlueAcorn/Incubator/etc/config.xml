@@ -3,7 +3,7 @@
 <config>
     <modules>
         <BlueAcorn_Incubator>
-            <version>1.0.0.3</version>
+            <version>1.0.0.7</version>
         </BlueAcorn_Incubator>
     </modules>
     <!-- Configure our module's behavior in the global scope -->
@@ -17,14 +17,13 @@
                 <class>BlueAcorn_Incubator_Model_Resource</class>
             </new_resource>
         </models>
-        <resource>
+        <resources>
             <blueacorn_incubator_setup>
                 <setup>
                     <module>BlueAcorn_Incubator</module>
-                    <class>BlueAcorn_Incubator_Resource_</class>
                 </setup>
             </blueacorn_incubator_setup>
-        </resource>
+        </resources>
     </global>
     <frontend>
         <layout>

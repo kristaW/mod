@@ -1,10 +1,10 @@
 <?php
 
 $mage = Mage::getModel('cms/page')->load('home');
-$data = $mage->getData();
+$data = $mage->getContent();
 
 $str = "<h1>My FM Made Me Do This!</h1>";
 
-$data['content'] .= "\r\n".$str;
+$data .= "\r\n".$str;
 
-$mage->setData($data['content'])->save();
+$mage->setContent($data)->save();
