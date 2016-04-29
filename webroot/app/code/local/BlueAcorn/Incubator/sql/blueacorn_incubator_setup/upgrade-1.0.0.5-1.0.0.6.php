@@ -1,5 +1,10 @@
-
 <?php
+/**
+ * @package     BlueAcorn\Incubator
+ * @version
+ * @author      Blue Acorn, Inc. <code@blueacorn.com>
+ * @copyright   Copyright © ${YEAR} Blue Acorn, Inc.
+ */
 
 $installer = Mage::getResourceModel('catalog/setup', 'catalog_setup');
 $installer->startSetup();
@@ -12,7 +17,7 @@ $defaultGroupId = $installer->getDefaultAttributeGroupId( $entityTypeId, $defaul
 
 // --- ATTRIBUTE BEGIN ---
 
-$_attribute_data = array(
+$attributeData = array(
     'user_defined' => true
     ,'attribute_code' => 'product_warranty_11'
     ,'label' => 'Has Product Warranty'
@@ -29,20 +34,20 @@ $_attribute_data = array(
 );
 
 $attributeModel = Mage::getModel('catalog/resource_eav_attribute');
-$attributeModel->addData($_attribute_data);
-$attributeModel->setEntityTypeId(Mage::getModel('eav/entity')->setType('catalog_product')->getTypeId());
+$attributeModel->addData($attributeData);
+$attributeModel->setEntityTypeId($entityTypeId);
 
 // --- ATTRIBUTE END ---
 
 $installer->addAttribute(
     $entityTypeId,
-    $_attribute_data['attribute_code'],
-    $_attribute_data
+    $attributeData['attribute_code'],
+    $attributeData
 );
 
 $installer->addAttributeToGroup(
     $entityTypeId,
     $defaultSetId,
     $defaultGroupId,
-    $_attribute_data['attribute_code']
+    $attributeData['attribute_code']
 );

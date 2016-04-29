@@ -1,5 +1,12 @@
 <?php
-$data = array(
+/**
+ * @package     BlueAcorn\Incubator
+ * @version
+ * @author      Blue Acorn, Inc. <code@blueacorn.com>
+ * @copyright   Copyright © ${YEAR} Blue Acorn, Inc.
+ */
+
+$bannerData = array(
     'name'          => 'Free Shipping to South Carolina',
     'identifier'    => 'shipping-to-south-carolina',
     'content'       => '<p>Free Shipping to South Carolina</p>',
@@ -8,15 +15,15 @@ $data = array(
     'store_contents' => array('<p>Free Shipping to South Carolina</p>')
 );
 
-$banner = Mage::getModel('enterprise_banner/banner')->setData($data)->save();
-$id = $banner->getId();
+$banner = Mage::getModel('enterprise_banner/banner')->setData($bannerData)->save();
+$bannerId = $banner->getId();
 
 $parameters = array(
     'display_mode' => 'fixed'
-    ,'banner_ids' => $id
+    ,'banner_ids' => $bannerId
 );
 
-$_widget_data = array(
+$widgetData = array(
     'type' => 'enterprise_banner/widget_banner'
     ,'title' => 'Free Shipping to South Carolina'
     ,'package_theme' => 'rwd/enterprise'
@@ -37,4 +44,8 @@ $_widget_data = array(
     ,'widget_parameters' => serialize($parameters)
 );
 
-$instance = Mage::getModel('widget/widget_instance')->setData($_widget_data)->save();
+try {
+    Mage::getModel('widget/widget_instance')->setData($widgetData)->save();
+} catch(Exception $e) {
+    echo 'Caught exception: ',  $e->getMessage(), "\n";
+}
