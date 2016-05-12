@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+
+<layout>
+    <adminhtml_contacts_index>
+        <reference name="content">
+            <block type="blueacorn_contacts/adminhtml_contacts" name="contacts_list"/>
+        </reference>
+    </adminhtml_contacts_index>
+
+    <adminhtml_contacts_grid>
+        <remove name="root"/>
+        <block type="blueacorn_contacts/adminhtml_contacts_grid" name="contacts_grid" output="toHtml"/>
+    </adminhtml_contacts_grid>
+
+    <adminhtml_contacts_edit>
+        <update handle="editor"/>
+
+        <reference name="left">
+            <block type="blueacorn_contacts/adminhtml_contacts_edit_tabs" name="contacts_edit_tabs">
+                <block type="blueacorn_contacts/adminhtml_contacts_edit_tab_content" name="contacts_edit_tab_content"/>
+                <action method="addTab"><name>Contact Information</name><block>contacts_edit_tab_content</block></action>
+            </block>
+        </reference>
+        <reference name="content">
+            <block type="blueacorn_contacts/adminhtml_contacts_edit" name="contact_edit_content"/>
+        </reference>
+    </adminhtml_contacts_edit>
+</layout>

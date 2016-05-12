@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<config>
+    <menu>
+        <customer>
+            <children>
+                <blueacorn_contacts translate="title" module="blueacorn_contacts">
+                    <title>Customer Contacts</title>
+                    <action>adminhtml/contacts</action>
+                    <sort_order>10</sort_order>
+                </blueacorn_contacts>
+            </children>
+        </customer>
+    </menu>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <customer>
+                        <children>
+                            <blueacorn_contacts translate="title" module="blueacorn_contacts">
+                                <title>Customer Contacts</title>
+                                <sort_order>15</sort_order>
+                            </blueacorn_contacts>
+                        </children>
+                    </customer>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>
